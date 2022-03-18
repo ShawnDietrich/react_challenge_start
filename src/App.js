@@ -11,7 +11,7 @@ function App() {
   */
   const [contacts, setContacts] = useState([{
     name: '',
-    phone: 0,
+    phone: '',
     email: ''
   }]);
   const [appointments, setAppoitments] = useState([{
