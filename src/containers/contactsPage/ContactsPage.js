@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react/cjs/react.production.min";
+import React,{useState, useEffect} from "react";
 import {ContactForm} from '../../components/contactForm/ContactForm';
 import {TileList} from '../../components/tileList/TileList';
 
@@ -35,8 +34,8 @@ export const ContactsPage = (props) => {
   contacts array variable in props
   */
   useEffect(() => {
-    setDup(() => props.contactList.name.includes(name));
-  }, [props.contactList.name, name])
+    setDup(props.contactList[name].includes(name));
+  }, [props.contactList, name])
 
   return (
     <div>
