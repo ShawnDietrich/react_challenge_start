@@ -7,7 +7,7 @@ export const ContactsPage = (props) => {
   Define state variables for 
   contact info and duplicate check
   */
-  const [name, setName] = useState('');
+  const [newName, setNewName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [dup, setDup] = useState(false);
@@ -20,10 +20,10 @@ export const ContactsPage = (props) => {
     */
    if (!dup){
     props.addContact({
-      name, phone, email
+      newName, phone, email
     })
     //Reset inputs to default
-    setName('');
+    setNewName('');
     setPhone('');
     setEmail('');
    }
@@ -34,17 +34,20 @@ export const ContactsPage = (props) => {
   contacts array variable in props
   */
   useEffect(() => {
-    setDup(props.contactList[name].includes(name));
-  }, [props.contactList, name])
+    setDup(props.contactList.includes(newName));
+  }, [props.contactList, newName])
 
   return (
     <div>
       <section>
         <h2>Add Contact</h2>
         <ContactForm 
-        name={name}
+        contactName={newName}
+        setName={setNewName}
         phone={phone}
+        setPhone={setPhone}
         email={email}
+        setEmail={setEmail}
         onSubmit={handleSubmit}  
         />
       </section>
@@ -52,7 +55,7 @@ export const ContactsPage = (props) => {
       <section>
         <h2>Contacts</h2>
         <TileList 
-        contacts={props.contacts}
+        contacts={props.contactList}
         />
       </section>
     </div>

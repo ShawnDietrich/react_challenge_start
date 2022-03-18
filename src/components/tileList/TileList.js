@@ -1,6 +1,7 @@
 import React from "react";
+import {Title} from '../../components/tile/Tile'
 
-export const TileList = () => {
+export const TileList = (props) => {
   return (
     <div>
       

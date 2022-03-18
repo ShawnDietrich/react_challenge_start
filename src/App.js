@@ -10,7 +10,7 @@ function App() {
   contacts and appointments 
   */
   const [contacts, setContacts] = useState([{
-    name: '',
+    contactName: '',
     phone: '',
     email: ''
   }]);
@@ -33,7 +33,7 @@ function App() {
   */
     const addContact = (contact) => {
     setContacts((prev) => [...prev, {
-      name: contact.name,
+      contactName: contact.name,
       phone: contact.phone,
       email: contact.email
     }])
