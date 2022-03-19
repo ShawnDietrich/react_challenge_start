@@ -23,7 +23,7 @@ export const ContactForm = (props) => {
         <input type='text' onChange={handleOnChange}/>
         <input type='tel' onChange={handleOnChange} pattern="[1-9][0-9]{2}-[1-9][0-9]{2}-[0-9]{4}"/>
         <input type='email' onChange={handleOnChange}/>
-        <button type='submit'>Submit</button>
+        <input type='submit'/>
       </form>
 
     </div>

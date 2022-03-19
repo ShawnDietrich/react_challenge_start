@@ -12,6 +12,7 @@ export const ContactsPage = (props) => {
   const [email, setEmail] = useState('');
   const [dup, setDup] = useState(false);
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     /*
@@ -20,9 +21,12 @@ export const ContactsPage = (props) => {
     */
    if (!dup){
     props.addContact({
-      newName, phone, email
+      contactName: newName,
+      phone: phone,
+      email: email
     })
     //Reset inputs to default
+    e.target.reset()
     setNewName('');
     setPhone('');
     setEmail('');
@@ -34,7 +38,9 @@ export const ContactsPage = (props) => {
   contacts array variable in props
   */
   useEffect(() => {
-    setDup(props.contactList.includes(newName));
+    setDup(props.contactList.find((object) => {
+      return object.contactName === newName ? true : false
+    } ));
   }, [props.contactList, newName])
 
   return (
@@ -48,14 +54,15 @@ export const ContactsPage = (props) => {
         setPhone={setPhone}
         email={email}
         setEmail={setEmail}
-        onSubmit={handleSubmit}  
+        onSubmit={handleSubmit} 
+        dup={dup} 
         />
       </section>
       <hr />
       <section>
         <h2>Contacts</h2>
         <TileList 
-        contacts={props.contactList}
+        objectList={props.contactList}
         />
       </section>
     </div>
