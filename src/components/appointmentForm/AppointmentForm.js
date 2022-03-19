@@ -22,8 +22,9 @@ export const AppointmentForm = (props) => {
   };
 
   const handleOnChange = (e) => {
+    
     props.setTitle(e.target.form[0].value)
-    props.setDate(e.targe.form[1].value)
+    props.setDate(e.target.form[1].value)
     props.setTime(e.target.form[2].value)
     props.setContact(e.target.form[3].value)
   }

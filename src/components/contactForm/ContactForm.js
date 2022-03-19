@@ -11,6 +11,7 @@ import React from "react";
 export const ContactForm = (props) => {
   
   const handleOnChange = (e) => {
+    
   props.setName(e.target.form[0].value)
   props.setPhone(e.target.form[1].value)
   props.setEmail(e.target.form[2].value)

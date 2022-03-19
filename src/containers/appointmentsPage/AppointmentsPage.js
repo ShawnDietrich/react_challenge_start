@@ -17,7 +17,7 @@ export const AppointmentsPage = (props) => {
     /*
     Add contact info and clear data  
     */
-   props.addApoint({
+   props.addAppoint({
     title: currTitle,
     contact: contact,
     date: date,
